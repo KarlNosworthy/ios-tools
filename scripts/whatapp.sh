@@ -1,6 +1,8 @@
 #!/bin/bash
 #
-# LICENSE GOES HERE
+# Feel free to take, distribute, copy, install, rename, modify or
+# enhance this script. I hope it comes in handy. If you have ideas
+# to make it better...you know where it came from.
 #
 # whatapp 								  	  created: 31/05/2013
 # ===============================================================
@@ -20,12 +22,11 @@ fi
 IPA_FILE="$1"
 
 # Set up the required paths
-TEMP_ROOT_DIR="whichversion"
+TEMP_ROOT_DIR="whatapp"
 TEMP_DIR_PATH=${TMPDIR}/${TEMP_ROOT_DIR}
 mkdir -p ${TEMP_DIR_PATH}
 
 # Unpack the .ipa and locate the Info.plist
-#unzip -q "${IPA_FILE}" -d ${TEMP_DIR_PATH}
 unzip -q "${IPA_FILE}" Payload/\*.app/Info.plist -d ${TEMP_DIR_PATH} 
 APP_NAME=`ls ${TMPDIR}/${TEMP_ROOT_DIR}/Payload`
 TEMP_PLIST_PATH="${TMPDIR}/${TEMP_ROOT_DIR}/Payload/${APP_NAME}/Info.plist"
